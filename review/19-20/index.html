@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		r/LiverpoolFC Survey Results
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="icon" type="image/gif" href="/liverbird.png">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap" rel="stylesheet">
+
+	<!--  Load site-specific customizations after bootstrap. -->
+	<link rel="stylesheet" href="/common.css">
+	<link rel="stylesheet" href="/review/style.css">
+	<link rel="stylesheet" href="./style.css">
+
+	<!-- Chart.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+	<script src="/review/19-20/config.js"></script>
+	<script src="/review/index.js"></script>
+
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+	</style>
+	<style type="text/css">
+		/* Chart.js */
+		@keyframes chartjs-render-animation {
+			from {
+				opacity: .99
+			}
+
+			to {
+				opacity: 1
+			}
+		}
+
+		.chartjs-render-monitor {
+			animation: chartjs-render-animation 1ms
+		}
+
+		.chartjs-size-monitor,
+		.chartjs-size-monitor-expand,
+		.chartjs-size-monitor-shrink {
+			position: absolute;
+			direction: ltr;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			overflow: hidden;
+			pointer-events: none;
+			visibility: hidden;
+			z-index: -1
+		}
+
+		.chartjs-size-monitor-expand>div {
+			position: absolute;
+			width: 1000000px;
+			height: 1000000px;
+			left: 0;
+			top: 0
+		}
+
+		.chartjs-size-monitor-shrink>div {
+			position: absolute;
+			width: 200%;
+			height: 200%;
+			left: 0;
+			top: 0
+		}
+	</style>
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+	<![endif]-->
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header py-3">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<!--  Display three horizontal lines when navbar collapsed. -->
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand">
+				<img class="lfc-logo" src="/liverbird.png" height="60" alt="">
+			</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="/" class="text-decoration-none">Survey Results</a></li>
+				<li><a class="text-decoration-none" href="/season">Season So Far</a></li>
+				<li class="dropdown active">
+					<a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Past Seasons
+					</a>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item text-decoration-none" href="/review/21-22">2021/22</a><br>
+						<a class="dropdown-item text-decoration-none" href="/review/20-21">2020/21</a><br>
+						<a class="dropdown-item text-decoration-none" href="#">2019/20</a><br>
+						<a class="dropdown-item text-decoration-none" href="/review/18-19">2018/19</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="page-content">
+	<div class="p-5">
+		<h1 class="mb-3">Season Review 2019/20</h1>
+	</div>
+	<div class="links p-5" id="slides">
+		<a href="#comp">Jump to Player Comparison </a><br>
+		<a href="#arch">Jump to Results Archive</a>
+	</div>
+	<div class="p-5" id="slides-img">
+		<img src="/review/19-20/assets/season-review0.png">
+		<img src="/review/19-20/assets/season-review1.png">
+		<img src="/review/19-20/assets/season-review2.png">
+		<img src="/review/19-20/assets/season-review3.png">
+		<img src="/review/19-20/assets/season-review4.png">
+		<img src="/review/19-20/assets/season-review5.png">
+		<img src="/review/19-20/assets/season-review6.png">
+		<img src="/review/19-20/assets/season-review7.png">
+		<img src="/review/19-20/assets/season-review8.png">
+		<img src="/review/19-20/assets/season-review9.png">
+		<img src="/review/19-20/assets/season-review10.png">
+		<img src="/review/19-20/assets/season-review11.png">
+		<img src="/review/19-20/assets/season-review12.png">
+		<img src="/review/19-20/assets/season-review13.png">
+		<img src="/review/19-20/assets/season-review14.png">
+		<img src="/review/19-20/assets/season-review15.png">
+		<img src="/review/19-20/assets/season-review16.png">
+		<img src="/review/19-20/assets/season-review17.png">
+		<img src="/review/19-20/assets/season-review18.png">
+		<img src="/review/19-20/assets/season-review19.png">
+		<img src="/review/19-20/assets/season-review20.png">
+	</div>
+	<div class="links" id="comp">
+		<a href="#slides">Jump to Season Review</a><br>
+		<a href="#arch">Jump to Results Archive</a>
+	</div>
+	<div class="charts">
+		<div>
+			<h1>Season Review Defensive Line Chart</h1>
+			Click a player name to include/exclude their results
+		</div>
+		<div class="chart">
+			<div class="chartjs-size-monitor">
+				<div class="chartjs-size-monitor-expand">
+					<div class=""></div>
+				</div>
+				<div class="chartjs-size-monitor-shrink">
+					<div class=""></div>
+				</div>
+			</div>
+			<canvas id="canvas"
+					class="chartjs-render-monitor"></canvas>
+		</div>
+		<div>
+			<h1>Season Review Midfield Line Chart</h1>
+			Click a player name to include/exclude their results
+		</div>
+		<div class="chart">
+			<div class="chartjs-size-monitor">
+				<div class="chartjs-size-monitor-expand">
+					<div class=""></div>
+				</div>
+				<div class="chartjs-size-monitor-shrink">
+					<div class=""></div>
+				</div>
+			</div>
+			<canvas id="canvas2" class="chartjs-render-monitor"></canvas>
+		</div>
+		<div>
+			<h1>Season Review Attack Line Chart</h1>
+			Click a player name to include/exclude their results
+		</div>
+		<div class="chart">
+			<div class="chartjs-size-monitor">
+				<div class="chartjs-size-monitor-expand">
+					<div class=""></div>
+				</div>
+				<div class="chartjs-size-monitor-shrink">
+					<div class=""></div>
+				</div>
+			</div>
+			<canvas id="canvas3"
+					class="chartjs-render-monitor"></canvas>
+		</div>
+		<script async src="https://drv.tw/inc/wd.js"></script>
+	</div>
+	<div class="links" id="arch">
+		<a href="#slides">Jump to Season Review</a><br>
+		<a href="#comp">Jump to Player Comparison</a>
+	</div>
+	<div>
+		<div class="home" id="August">
+			<h2>
+				August
+			</h2>
+			<p>
+				<a class="h" href="https://imgur.com/a/xcXXgbX" target="_blank">&bull; Liverpool (4) 1 - 1 (5) Manchester City  <i>(Community Shield)</i></a><br>
+				<a class="h" href="https://imgur.com/a/b9ZiqAh" target="_blank">&bull; Liverpool 4 - 1 Norwich <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/kGArhHe" target="_blank">&bull; Liverpool (5) 2 - 2 (4) Chelsea <i>(Super Cup)</i></a><br>
+				<a class="h" href="https://imgur.com/a/8WH9v22" target="_blank">&bull; Southampton 1 - 2 Liverpool <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/UMRhuEG" target="_blank">&bull; Liverpool 3 - 1 Arsenal <i>(Premier League)</i></a>
+			</p>
+		</div>
+		<div class="away" id="September">
+			<p>
+			</p><h2>
+			September
+		</h2>
+			<a class="a" href="https://imgur.com/a/m1IBRLl" target="_blank">&bull; Burnley 0 - 3 Liverpool <i>(Premier League)</i></a><br>
+			<a class="a" href="https://imgur.com/a/QxRGpDL" target="_blank">&bull; Liverpool 3 - 1 Newcastle United <i>(Premier League)</i></a><br>
+			<a class="a" href="https://imgur.com/a/IKvOyrb" target="_blank">&bull; Napoli 2 - 0 Liverpool <i>(Champions League)</i></a><br>
+			<a class="a" href="https://imgur.com/a/2iMfbxz" target="_blank">&bull; Chelsea 1 - 2 Liverpool <i>(Premier League)</i></a><br>
+			<a class="a" href="https://imgur.com/a/oimLrly" target="_blank">&bull; MK Dons 0 - 2 Liverpool <i>(EFL Cup)</i></a><br>
+			<a class="a" href="https://imgur.com/a/CkVLFuo" target="_blank">&bull; Sheffield United 0 - 1 Liverpool <i>(Premier League)</i></a>
+			<p></p>
+		</div>
+		<div class="third" id="October">
+			<p>
+			</p><h2>
+			October
+		</h2>
+			<a class="t" href="https://imgur.com/a/r68aXex" target="_blank">&bull; Liverpool 4 - 3 RB Salzburg <i>(Champions League)</i></a><br>
+			<a class="t" href="https://imgur.com/a/YJCm43Y" target="_blank">&bull; Liverpool 2 - 1 Leicester <i>(Premier League)</i></a><br>
+			<a class="t" href="https://imgur.com/a/bw9VPXI" target="_blank">&bull; Manchester United 1 - 1 Liverpool <i>(Premier League)</i></a><br>
+			<a class="t" href="https://imgur.com/a/VJ3HAj7" target="_blank">&bull; Genk 1 - 4 Liverpool <i>(Champions League)</i></a><br>
+			<a class="t" href="https://imgur.com/a/cRyATcL" target="_blank">&bull; Liverpool 2 - 1 Tottenham <i>(Premier League)</i></a><br>
+			<a class="t" href="https://imgur.com/a/AIwf5UA" target="_blank">&bull; Liverpool (5) 5 - 5 (4) Arsenal <i>(EFL Cup)</i></a>
+			<p></p>
+		</div>
+		<div class="home" id="November">
+			<h2>
+				November
+			</h2>
+			<p>
+				<a class="h" href="https://imgur.com/a/eihJcVs" target="_blank">&bull; Aston Villa 1 - 2 Liverpool  <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/2hgqvUL" target="_blank">&bull; Liverpool 2 - 1 Genk <i>(Champions League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/ZGcJ4uL" target="_blank">&bull; Liverpool 3 - 1 Manchester City <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/V77AgWr" target="_blank">&bull; Crystal Palace 1 - 2 Liverpool <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/sb0vXUe" target="_blank">&bull; Liverpool 1 - 1 Napoli <i>(Champions League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/0WUyKLH" target="_blank">&bull; Liverpool 2 - 1 Brighton <i>(Premier League)</i></a>
+			</p>
+		</div>
+		<div class="away" id="December">
+			<p>
+			</p><h2>
+			December
+		</h2>
+			<a class="a" href="https://imgur.com/a/RwyDMOs" target="_blank">&bull; Liverpool 5 - 2 Everton <i>(Premier League)</i></a><br>
+			<a class="a" href="https://imgur.com/a/i8rfV64" target="_blank">&bull; Bournemouth 0 - 3 Liverpool <i>(Premier League)</i></a><br>
+			<a class="a" href="https://imgur.com/a/ZhNqt1G" target="_blank">&bull; RB Salzburg 0 - 2 Liverpool <i>(Champions League)</i></a><br>
+			<a class="a" href="https://imgur.com/a/45JuO9k" target="_blank">&bull; Liverpool 2 - 0 Watford <i>(Premier League)</i></a><br>
+			<a class="a" href="https://imgur.com/a/nnu3dOs" target="_blank">&bull; Aston Villa 5 - 0 Liverpool <i>(EFL Cup)</i></a><br>
+			<a class="a" href="https://imgur.com/a/45JuO9k" target="_blank">&bull; Monterrey 1 - 2 Liverpool <i>(Club World Cup)</i></a><br>
+			<a class="a" href="https://imgur.com/a/45JuO9k" target="_blank">&bull; Liverpool 1 - 0 Flamengo <i>(Club World Cup)</i></a><br>
+			<a class="a" href="https://imgur.com/a/45JuO9k" target="_blank">&bull; Leicester 0 - 4 Liverpool <i>(Premier League)</i></a><br>
+			<a class="a" href="https://imgur.com/a/CkVLFuo" target="_blank">&bull; Liverpool 1 - 0 Wolves <i>(Premier League)</i></a>
+			<p></p>
+		</div>
+		<div class="third" id="January">
+			<p>
+			</p><h2>
+			January
+		</h2>
+			<a class="t" href="https://imgur.com/a/rzhPunl" target="_blank">&bull; Liverpool 2 - 0 Sheffield United <i>(Premier League)</i></a><br>
+			<a class="t" href="https://imgur.com/a/okqJiX2" target="_blank">&bull; Liverpool 1 - 0 Everton <i>(FA Cup)</i></a><br>
+			<a class="t" href="https://imgur.com/a/ZttU0NK" target="_blank">&bull; Tottenham 0 - 1 Liverpool <i>(Premier League)</i></a><br>
+			<a class="t" href="https://imgur.com/a/Rx4u1Vc" target="_blank">&bull; Liverpool 2 - 0 Manchester United <i>(Premier League)</i></a><br>
+			<a class="t" href="https://imgur.com/a/DZyTK8N" target="_blank">&bull; Wolves 1 - 2 Liverpool <i>(Premier League)</i></a><br>
+			<a class="t" href="https://imgur.com/a/WaGfE3k" target="_blank">&bull; Shrewsbury 2 - 2 Liverpool <i>(FA Cup)</i></a><br>
+			<a class="t" href="https://imgur.com/a/qAwTd8A" target="_blank">&bull; West Ham 0 - 2 Liverpool <i>(Premier League)</i></a>
+			<p></p>
+		</div>
+		<div class="home" id="February">
+			<h2>
+				February
+			</h2>
+			<p>
+				<a class="h" href="https://imgur.com/a/Eubdo4Y" target="_blank">&bull; Liverpool 4 - 0 Southampton <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/y68kXjO" target="_blank">&bull; Liverpool 1 - 0 Shrewsbury <i>(FA Cup)</i></a><br>
+				<a class="h" href="https://imgur.com/a/gkwvJOW" target="_blank">&bull; Norwich 0 - 1 Liverpool <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/0fekfn6" target="_blank">&bull; Atletico Madrid 1 - 0 Liverpool <i>(Champions League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/1WEDLWG" target="_blank">&bull; Liverpool 3 - 2 West Ham <i>(Premier League)</i></a>
+			</p>
+		</div>
+		<div class="away" id="March">
+			<p>
+			</p><h2>
+			March
+		</h2>
+			<a class="a" href="https://imgur.com/a/dnkTkFN" target="_blank">&bull; Watford 0 - 3 Liverpool <i>(Premier League)</i></a><br>
+			<a class="a" href="https://imgur.com/a/KLhhkzJ" target="_blank">&bull; Chelsea 2 - 0 Liverpool <i>(FA Cup)</i></a><br>
+			<a class="a" href="https://imgur.com/a/3FKd8kr" target="_blank">&bull; Liverpool 2 - 1 Bournemouth <i>(Premier League)</i></a><br>
+			<a class="a" href="https://imgur.com/a/ceu4YQt" target="_blank">&bull; Liverpool 2 - 3 Atletico Madrid <i>(Champions League)</i></a>
+			<p></p>
+		</div>
+		<div class="third" id="June">
+			<p>
+			</p><h2>
+			June
+		</h2>
+			<a class="t" href="https://imgur.com/a/p12JiOZ" target="_blank">&bull; Everton 0 - 0 Liverpool <i>(Premier League)</i></a><br>
+			<a class="t" href="https://imgur.com/a/IPKyZMN" target="_blank">&bull; Liverpool 4 - 0 Crystal Palace <i>(Premier League)</i></a>
+			<p></p>
+		</div>
+		<div class="home" id="July">
+			<h2>
+				July
+			</h2>
+			<p>
+				<a class="h" href="https://imgur.com/a/JrEVKZZ" target="_blank">&bull; Manchester City 4 - 0 Liverpool  <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/CGWNWv4" target="_blank">&bull; Liverpool 2 - 0 Aston Villa <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/grKYPJq" target="_blank">&bull; Brighton 1 - 3 Liverpool <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/7yBbJmZ" target="_blank">&bull; Liverpool 1 - 1 Burnley <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/prE83qo" target="_blank">&bull; Arsenal 2 - 1 Liverpool <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/xVaLhiL" target="_blank">&bull; Liverpool 5 - 3 Chelsea <i>(Premier League)</i></a><br>
+				<a class="h" href="https://imgur.com/a/MisKzG3" target="_blank">&bull; Newcastle 1 - 3 Liverpool <i>(Premier League)</i></a>
+			</p>
+		</div>
+	</div>
+	<div class="links">
+		<a href="#slides">Jump to Season Review</a><br>
+		<a href="#comp">Jump to Player Comparison</a><br>
+		<a href="#arch">Jump to Results Archive</a>
+	</div>
+</div>
+<!-- Load Bootstrap JavaScript components -->
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

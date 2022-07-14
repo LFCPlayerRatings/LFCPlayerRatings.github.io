@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    r/LiverpoolFC Survey Results
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="icon" type="image/gif" href="/liverbird.png">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap" rel="stylesheet">
+
+  <!--  Load site-specific customizations after bootstrap. -->
+  <link rel="stylesheet" href="/common.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header py-3">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">
+        <img class="lfc-logo" src="/liverbird.png" height="60" alt="">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#" class="text-decoration-none">Survey Results</a></li>
+        <li><a class="text-decoration-none" href="/season">Season So Far</a></li>
+        <li class="dropdown">
+          <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Past Seasons
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item text-decoration-none" href="/review/21-22">2021/22</a><br>
+            <a class="dropdown-item text-decoration-none" href="/review/20-21">2020/21</a><br>
+            <a class="dropdown-item text-decoration-none" href="/review/19-20">2019/20</a><br>
+            <a class="dropdown-item text-decoration-none" href="/review/18-19">2018/19</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="p-5" id="current_link">
+  <h4 class="mb-3">
+    <a target="_blank" href=
+            "https://docs.google.com/forms/d/1OxSpuJnLd_vL23sZtqipyO6uLrLin_jcRRiFOipJ67A/edit?usp=drivesdk"
+       <!-- {{SURVEYLINKHERE}} -->
+    >
+      Take part in the latest survey here
+    </a>
+  </h4>
+</div>
+<div class="page-content" id="results_list"></div>
+<!-- Load Bootstrap JavaScript components -->
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script>
+  let games = [
+    // {{GAMELISTHERE}}
+  ]
+  let competitions = {
+    'PL': 'Premier League',
+    'CL': 'Champions League',
+    'FA': 'FA Cup',
+    'LC': 'League Cup',
+    'CS': 'Community Shield',
+    'SC': 'Super Cup',
+    'WC': 'Club World Cup'
+  }
+  let months = {
+    '01': 'January',
+    '02': 'February',
+    '03': 'March',
+    '04': 'April',
+    '05': 'May',
+    '06': 'June',
+    '07': 'July',
+    '08': 'August',
+    '09': 'September',
+    '10': 'October',
+    '11': 'November',
+    '12': 'December'
+  }
+  let home_map = {
+    0: 'home',
+    1: 'away',
+    2: 'third'
+  }
+  if (games.length === 0) {
+    document.getElementById('current_link').innerHTML = '<h1 style="color: white">Next season coming soon!</h1>'
+  }
+  else {
+    let curr_element = ''
+    let results_list_element = document.getElementById('results_list')
+    let inner_html_to_append = ''
+    let home = 2
+    for (let game in games) {
+      let fixture = games[game][0]
+      let link = games[game][1]
+      let split_fixture = fixture.split('_')
+      let match_result = split_fixture.slice(0, -3).join(' ')
+      let competition = competitions[split_fixture[split_fixture.length - 3]]
+      let date = split_fixture[split_fixture.length - 2]
+      let month_num = date.split('-')[1]
+      let month = months[month_num]
+      if (!curr_element.includes(month)) {
+        inner_html_to_append += curr_element + '</p></div>'
+        home += 1
+        if (home === 3) {
+          home = 0
+        }
+        curr_element = '<div class="' + home_map[home] + '" id="' + month + '"><h2>' + month + '</h2><p>'
+      }
+      curr_element += '<a href="' + link + '" target="_blank">&bull; ' + match_result + ' <i>(' + competition + ')</i></a><br>'
+    }
+    results_list_element.innerHTML = inner_html_to_append + curr_element + '</p></div>'
+  }
+</script>
+</body>
+</html>

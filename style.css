@@ -1,0 +1,64 @@
+.home, .away, .third {
+  background-size: 100%;
+  padding: 2%;
+}
+
+.home h2, .away h2, .third h2 {
+  text-indent: 5%;
+  font-weight: bold;
+  font-size: 35px
+}
+
+.home a, .away a, .third a{
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.home a:hover, .away a:hover, .third a:hover{
+  text-decoration: none;
+}
+
+.home {
+  background-image: url('/kits/red.svg');
+  color: white;
+}
+
+.home a{
+  color: white;
+}
+
+.home a:hover{
+  color: #999;
+}
+
+.away {
+  background-image: url('/kits/white.svg');
+  color: black;
+}
+
+.away a {
+  color: #3C809B;
+}
+
+.away a:hover{
+  color: #D47FA5;
+}
+
+.third {
+  background-image: url('/kits/black.svg');
+  color: darkslateblue;
+}
+
+.third a{
+  color: #324682;
+}
+
+.third a:hover{
+  color: #e872c2;
+}
+
+.p-5 {
+  padding-top: 1%;
+  padding-left: 1%;
+}

@@ -1,0 +1,38 @@
+.home {
+  background-image: url('/kits/red.svg');
+  color: white;
+}
+
+.home a{
+  color: white
+}
+
+.home a:hover{
+  color: #F84843;
+}
+
+.away {
+  background-image: url('/kits/cream.svg');
+  color: black;
+}
+
+.away a {
+  color: #185C34
+}
+
+.away a:hover{
+  color: #F84843;
+}
+
+.third {
+  background-image: url('/kits/yellow.svg');
+  color: #BC0000;
+}
+
+.third a{
+  color: #BC0000;
+}
+
+.third a:hover {
+  color: #6C0000;
+}

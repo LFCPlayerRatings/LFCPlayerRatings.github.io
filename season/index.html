@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    r/LiverpoolFC Survey Results
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="icon" type="image/gif" href="/liverbird.png">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap" rel="stylesheet">
+
+  <!--  Load site-specific customizations after bootstrap. -->
+  <link rel="stylesheet" href="/common.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header py-3">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <div class="icon-bar"></div> <div class="icon-bar"></div> <div class="icon-bar"></div>
+      </button>
+      <a class="navbar-brand">
+        <img class="lfc-logo" src="/liverbird.png" height="60" alt="">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/" class="text-decoration-none">Survey Results</a></li>
+        <li class="active"><a class="text-decoration-none" href="#">Season So Far</a></li>
+        <li class="dropdown">
+          <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Past Seasons
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item text-decoration-none" href="/review/21-22">2021/22</a><br>
+            <a class="dropdown-item text-decoration-none" href="/review/20-21">2020/21</a><br>
+            <a class="dropdown-item text-decoration-none" href="/review/19-20">2019/20</a><br>
+            <a class="dropdown-item text-decoration-none" href="/review/18-19">2018/19</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="padded-page-content">
+  <div class="p-5">
+    <h4 class="mb-3">
+      <a target="_blank" href="https://docs.google.com/spreadsheets/d/1nhCCLGeu13BVKDjYkeZoApVxuYNitMfKeEPw6oejfig/edit?usp=sharing">
+        View the complete season database here!
+      </a>
+    </h4>
+  </div>
+  <div class="p-5">
+    <h1 class="mb-3">Man of the Match Leaderboard:</h1>
+    <div id="motmchart"></div>
+  </div>
+  <div class="p-5">
+    <h1 class="mb-3">Season Average Ratings:</h1>
+    <div id="ratingschart"></div>
+  </div>
+  <div class="p-5">
+    <h1 class="mb-3">Team Averages:</h1>
+    <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQyBopnIbajA7CBXCWEVMRYNED4laDUHb2W88VhE-221SBVT8zTKlLIanwUkDczR2V_P_2-iBgLAd8Y/pubchart?oid=953061116&format=image">
+  </div>
+  <div class="p-5">
+    <div class="best-performance" id="best-player-performances"></div>
+    <div class="worst-performance" id="worst-player-performances"></div>
+    <div class="best-performance" id="best-team-performance"></div>
+    <div class="worst-performance" id="worst-team-performance"></div>
+  </div>
+</div>
+<!-- Load Bootstrap JavaScript components -->
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script>
+  // INPUTS FROM PYTHON CODE
+  // List of Man of the Match names
+  let motms = [
+    // {{MOTMLISTHERE}}
+  ]
+  // List of season averages, sorted highest to lowest
+  // Expected ['<player> (<number of performances>)', <rating>]
+  let averages = [
+    // {{AVERAGESLISTHERE}}
+  ]
+  // List of best and worst team/player performances
+  // Expected [<best team>, <worst team>, [<top player 1>, <2>, <3>], [<bottom player 1>, <2>, <3>]]
+  let best_and_worst = [
+    // {{BESTWORSTLISTHERE}}
+  ]
+
+  if (motms.length === 0) {
+    document.getElementById('padded-page-content').innerHTML = '<h1 style="padding: 1%; color: white">Next season coming soon!</h1>'
+  }
+  else {
+    // Organise and display python variables
+    let performances_html = '<h4>Best Individual Performances:</h4>'
+    performances_html += best_and_worst[2][0] + '<br>'
+    performances_html += best_and_worst[2][1] + '<br>'
+    performances_html += best_and_worst[2][2]
+    document.getElementById('best-player-performances').innerHTML = performances_html
+    performances_html = '<h4>Worst Individual Performances:</h4>'
+    performances_html += best_and_worst[3][0] + '<br>'
+    performances_html += best_and_worst[3][1] + '<br>'
+    performances_html += best_and_worst[3][2]
+    document.getElementById('worst-player-performances').innerHTML = performances_html
+    performances_html = '<h4>Best Team Performance:</h4>' + best_and_worst[0].replace('\n', '<br>')
+    document.getElementById('best-team-performance').innerHTML = performances_html
+    performances_html = '<h4>Worst Team Performance:</h4>' + best_and_worst[1].replace('\n', '<br>')
+    document.getElementById('worst-team-performance').innerHTML = performances_html
+    let motm_chart = ''
+    let motm_unique_list = []
+    let motm_occurences_list = []
+    for (let motm in motms) {
+      if (motm_unique_list.includes(motms[motm])) {
+        if (motm_unique_list.length > 1) {
+          let index = motm_unique_list.indexOf(motms[motm])
+          let motm_name = motm_unique_list.splice(index, 1)[0]
+          let motm_occurences = motm_occurences_list.splice(index, 1)[0] + 1
+          let flag = true
+          for (let i in motm_occurences_list) {
+            if (motm_occurences_list[i] < motm_occurences) {
+              flag = false
+              motm_occurences_list.splice(i, 0, motm_occurences);
+              motm_unique_list.splice(i, 0, motm_name);
+              break
+            }
+          }
+          if (flag) {
+            motm_unique_list.push(motm_name)
+            motm_occurences_list.push(motm_occurences)
+          }
+        } else {
+          motm_occurences_list = [motm_occurences_list[0] + 1]
+        }
+      } else {
+        motm_unique_list.push(motms[motm])
+        motm_occurences_list.push(1)
+      }
+    }
+    for (let motm_index in motm_unique_list) {
+      let motm_name = motm_unique_list[motm_index]
+      let motm_count = motm_occurences_list[motm_index]
+      motm_chart += '<div style=" width: '
+      motm_chart += 100 * (motm_count / motm_occurences_list[0])
+      motm_chart += '%">' + " " + motm_name + ' - ' + motm_count + '</div>'
+    }
+    document.getElementById('motmchart').innerHTML = motm_chart
+    let ratings_chart = ''
+    for (let i in averages) {
+      ratings_chart += '<div style=" width: ' + 100 * (averages[i][1] / 10)
+      ratings_chart += '%">' + " " + averages[i][0] + ' - ' + averages[i][1] + '</div>'
+    }
+    document.getElementById('ratingschart').innerHTML = ratings_chart
+  }
+</script>
+</body>
+</html>
