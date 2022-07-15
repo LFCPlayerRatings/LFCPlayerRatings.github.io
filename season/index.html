@@ -86,18 +86,34 @@
   // INPUTS FROM PYTHON CODE
   // List of Man of the Match names
   let motms = [
-    // {{MOTMLISTHERE}}
+    /'Konate',
+/ {{MOTMLISTHERE}}
   ]
   // List of season averages, sorted highest to lowest
   // Expected ['<player> (<number of performances>)', <rating>]
   let averages = [
-
-  ]// {{AVERAGESLISTHERE}}
+['Konate (1)', 8.58],
+['Matip (1)', 8.43],
+['Minamino (1)', 8.35],
+['Firmino (1)', 8.24],
+['Tsimikas (1)', 7.92],
+['Alisson (1)', 7.77],
+['Milner (1)', 7.51],
+['Henderson (1)', 7.5],
+['Jones (1)', 6.85],
+['Elliott (1)', 6.84],
+['Origi (1)', 6.72],
+['Gomez (1)', 6.69],
+['Jota (1)', 6.48],
+]// {{AVERAGESLISTHERE}}
   // List of best and worst team/player performances
   // Expected [<best team>, <worst team>, [<top player 1>, <2>, <3>], [<bottom player 1>, <2>, <3>]]
   let best_and_worst = [
-
-  ]// {{BESTWORSTLISTHERE}}
+'1-2 v Southampton(A)<br>7.61',
+'1-2 v Southampton(A)<br>7.61',
+['Konate 8.58 v Southampton(A)', 'Matip 8.43 v Southampton(A)', 'Minamino 8.35 v Southampton(A)'],
+['Jota 6.48 v Southampton(A)', 'Gomez 6.69 v Southampton(A)', 'Origi 6.72 v Southampton(A)']
+]// {{BESTWORSTLISTHERE}}
 
   if (motms.length === 0) {
     document.getElementById('padded-page-content').innerHTML = '<h1 style="color: white">Next season coming soon!</h1>'
