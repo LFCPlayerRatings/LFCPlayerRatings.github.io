@@ -3,6 +3,16 @@
   padding: 2%;
 }
 
+h4 a {
+  color: white;
+  text-decoration: none;
+}
+
+h4 a:hover {
+  color: gray;
+  text-decoration: none;
+}
+
 .home h2, .away h2, .third h2 {
   text-indent: 5%;
   font-weight: bold;

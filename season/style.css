@@ -2,6 +2,16 @@ h4 {
   font-size: 25px;
 }
 
+h4 a {
+  color: white;
+  text-decoration: none;
+}
+
+h4 a:hover {
+  color: gray;
+  text-decoration: none;
+}
+
 .p-5 img {
   width: 100%;
 }
