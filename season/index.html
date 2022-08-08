@@ -86,34 +86,37 @@
   // INPUTS FROM PYTHON CODE
   // List of Man of the Match names
   let motms = ['Salah',
+'Nunez',
 
 // {{MOTMLISTHERE}}
   ]
   // List of season averages, sorted highest to lowest
   // Expected ['<player> (<number of performances>)', <rating>]
   let averages = [
-['Salah (1)', 9.19],
-['Nunez (1)', 8.79],
-['Thiago (1)', 8.64],
-['Van Dijk (1)', 8.29],
-['Trent (1)', 8.14],
-['Robertson (1)', 7.92],
-['Matip (1)', 7.76],
-['Henderson (1)', 7.75],
-['Diaz (1)', 7.7],
-['Fabinho (1)', 7.66],
-['Milner (1)', 7.36],
-['Elliott (1)', 7.22],
-['Firmino (1)', 7.17],
+['Nunez (2)', 8.44],
+['Salah (2)', 8.11],
+['Milner (2)', 7.13],
+['Diaz (2)', 6.94],
+['Elliott (2)', 6.865],
+['Robertson (2)', 6.645],
+['Thiago (2)', 6.625],
 ['Adrian (1)', 6.61],
+['Van Dijk (2)', 6.49],
+['Matip (2)', 6.235],
+['Trent (2)', 6.055],
+['Henderson (2)', 5.97],
+['Fabinho (2)', 5.965],
+['Carvalho (1)', 5.85],
+['Alisson (1)', 5.77],
+['Firmino (2)', 5.54],
 ]// {{AVERAGESLISTHERE}}
   // List of best and worst team/player performances
   // Expected [<best team>, <worst team>, [<top player 1>, <2>, <3>], [<bottom player 1>, <2>, <3>]]
   let best_and_worst = [
 '3-1 v Manchester City(H)<br>7.89',
-'3-1 v Manchester City(H)<br>7.89',
+'2-2 v Fulham(A)<br>4.97',
 ['Salah 9.19 v Manchester City(H)', 'Nunez 8.79 v Manchester City(H)', 'Thiago 8.64 v Manchester City(H)'],
-['Adrian 6.61 v Manchester City(H)', 'Firmino 7.17 v Manchester City(H)', 'Elliott 7.22 v Manchester City(H)']
+['Firmino 3.91 v Fulham(A)', 'Trent 3.97 v Fulham(A)', 'Henderson 4.19 v Fulham(A)']
 ]// {{BESTWORSTLISTHERE}}
 
   if (motms.length === 0) {
