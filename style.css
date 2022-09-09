@@ -56,16 +56,16 @@ h4 a:hover {
 }
 
 .third {
-  background-image: url('/kits/black.svg');
-  color: darkslateblue;
+  background-image: url('/kits/turquoise.svg');
+  color: #F84843;
 }
 
 .third a{
-  color: #324682;
+  color: #347c67;
 }
 
 .third a:hover{
-  color: #e872c2;
+  color: #F84843;
 }
 
 .p-5 {
