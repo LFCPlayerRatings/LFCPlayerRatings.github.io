@@ -48,24 +48,24 @@ h4 a:hover {
 }
 
 .away a {
-  color: #3C809B;
+  color: #197829;
 }
 
 .away a:hover{
-  color: #D47FA5;
+  color: #22a337;
 }
 
 .third {
-  background-image: url('/kits/turquoise.svg');
-  color: #F84843;
+  background-image: url('/kits/purple.svg');
+  color: #7411a2;
 }
 
 .third a{
-  color: #347c67;
+  color: white;
 }
 
 .third a:hover{
-  color: #F84843;
+  color: #999;
 }
 
 .p-5 {

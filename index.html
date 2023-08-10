@@ -55,7 +55,7 @@
 <div class="p-5" id="current_link">
   <h4 class="mb-3">
     <a target="_blank" href=
-            "https://docs.google.com/forms/d/e/1FAIpQLScZ-4q_IXwnESmkjm4acQWDVc4gd90ZVTJNazBB8dNzKXWtTA/viewform"
+            "#"
 <!-- {{SURVEYLINKHERE}} -->
 
       Take part in the latest survey here
@@ -67,58 +67,7 @@
 <script src="https://code.jquery.com/jquery.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script>
-  let games = [['Liverpool_3_-_1_Manchester_City_CS_30-07-2022_MCI', 'https://imgur.com/a/r2jOS56'],
-['Fulham_2_-_2_Liverpool_PL_30-07-2022_FUL', 'https://imgur.com/a/xeOfxIn'],
-['Liverpool_1_-_1_Crystal_Palace_PL_15-08-2022_CRY', 'https://imgur.com/a/pOErzVg'],
-['Manchester_United_2_-_1_Liverpool_PL_22-08-2022_MUN', 'https://imgur.com/a/NdWqZ65'],
-['Liverpool_9_-_0_AFC_Bournemouth_PL_27-08-2022_BOU', 'https://imgur.com/a/yYuPelg'],
-['Liverpool_2_-_1_Newcastle_United_PL_31-08-2022_NEW', 'https://imgur.com/a/4mPYjuE'],
-['Everton_0_-_0_Liverpool_PL_03-09-2022_EVE', 'https://imgur.com/a/doPHW8g'],
-['Napoli_4_-_1_Liverpool_CL_07-09-2022_NAP', 'https://imgur.com/a/A1gmi0W'],
-['Liverpool_2_-_1_Ajax_CL_13-09-2022_AJX', 'https://imgur.com/a/sLSU3Ez'],
-['Liverpool_3_-_3_Brighton_PL_01-10-2022_BHA', 'https://imgur.com/a/Das7n3B'],
-['Liverpool_2_-_0_Rangers_CL_04-10-2022_RAN', 'https://imgur.com/a/XKE5CZu'],
-['Arsenal_3_-_2_Liverpool_PL_09-10-2022_ARS', 'https://imgur.com/a/XoASkFI'],
-['Rangers_1_-_7_Liverpool_CL_12-10-2022_RAN', 'https://imgur.com/a/Pb75uyT'],
-['Liverpool_1_-_0_Manchester_City_PL_16-10-2022_MCI', 'https://imgur.com/a/SlPqyD2'],
-['Liverpool_1_-_0_West_Ham_United_PL_19-10-2022_WHU', 'https://imgur.com/a/Ia3dUJp'],
-['Nottingham_Forest_1_-_0_Liverpool_PL_22-10-2022_NFO', 'https://imgur.com/a/ShBIcOe'],
-['Ajax_0_-_3_Liverpool_CL_26-10-2022_AJX', 'https://imgur.com/a/nyb5EMP'],
-['Liverpool_1_-_2_Leeds_United_PL_29-10-2022_LEE', 'https://imgur.com/a/U3lo1Rs'],
-['Liverpool_2_-_0_Napoli_CL_01-11-2022_NAP', 'https://imgur.com/a/23U3TRp'],
-['Tottenham_Hotspur_1_-_2_Liverpool_PL_06-11-2022_TOT', 'https://imgur.com/a/TS1KCHt'],
-['Liverpool_0_-_0_Derby_County_LC_09-11-2022_DER', 'https://imgur.com/a/Ue8bxz5'],
-['Liverpool_3_-_1_Southampton_PL_12-11-2022_SOU', 'https://imgur.com/a/7CluUQM'],
-['Manchester_City_3_-_2_Liverpool_LC_22-12-2022_MCI', 'https://imgur.com/a/kYBpPd1'],
-['Aston_Villa_1_-_3_Liverpool_PL_26-12-2022_AVL', 'https://imgur.com/a/UGyr2Pi'],
-['Liverpool_2_-_1_Leicester_City_PL_30-12-2022_LEI', 'https://imgur.com/a/lLoncUP'],
-['Brentford_3_-_1_Liverpool_PL_02-01-2023_BRE', 'https://imgur.com/a/1u36ulx'],
-['Liverpool_2_-_2_Wolverhampton_Wanderers_FA_07-01-2023_WOL', 'https://imgur.com/a/6GQIige'],
-['Brighton_&_Hove_Albion_3_-_0_Liverpool_PL_14-01-2023_BHA', 'https://imgur.com/a/rwJCoKC'],
-['Wolverhampton_Wanderers_0_-_1_Liverpool_FA_17-01-2023_WOL', 'https://imgur.com/a/OLSedL2'],
-['Liverpool_0_-_0_Chelsea_PL_21-01-2023_CHE', 'https://imgur.com/a/JcQXh15'],
-['Brighton_&_Hove_Albion_2_-_1_Liverpool_FA_29-01-2023_BHA', 'https://imgur.com/a/K0hdRSC'],
-['Wolves_3_-_0_Liverpool_PL_04-02-2023_WOL', 'https://imgur.com/a/gsN5Fvr'],
-['Liverpool_2_-_0_Everton_PL_13-02-2023_EVE', 'https://imgur.com/a/4mx497l'],
-['Newcastle_United_0_-_2_Liverpool_PL_18-02-2023_NEW', 'https://imgur.com/a/ESHzbRS'],
-['Liverpool_2_-_5_Real_Madrid_CL_21-02-2023_RMA', 'https://imgur.com/a/Khht5Md'],
-['Crystal_Palace_0_-_0_Liverpool_PL_25-02-2023_CRY', 'https://imgur.com/a/CODXU6o'],
-['Liverpool_2_-_0_Wolverhampton_Wanderers_PL_01-03-2023_WOL', 'https://imgur.com/a/aFCgkMM'],
-['Liverpool_7_-_0_Manchester_United_PL_05-03-2023_MNU', 'https://imgur.com/a/5u2VNsT'],
-['AFC_Bournemouth_1_-_0_Liverpool_PL_11-03-2023_BOU', 'https://imgur.com/a/nHHkLXu'],
-['Real_Madrid_1_-_0_Liverpool_CL_15-03-2023_RMA', 'https://imgur.com/a/eDkgYkZ'],
-['Manchester_City_4_-_1_Liverpool_PL_01-04-2023_MCI', 'https://imgur.com/a/32D3Hcj'],
-['Chelsea_0_-_0_Liverpool_PL_04-04-2023_CHE', 'https://imgur.com/a/uVrF1Rx'],
-['Liverpool_2_-_2_Arsenal_PL_09-04-2023_ARS', 'https://imgur.com/a/NNPGclp'],
-['Leeds_United_1_-_6_Liverpool_PL_17-04-2023_LEE', 'https://imgur.com/a/mCB1R0X'],
-['Liverpool_3_-_2_Nottingham_Forest_PL_22-04-2023_NOT', 'https://imgur.com/a/jeTgrVg'],
-['West_Ham_United_1_-_2_Liverpool_PL_26-04-2023_WHU', 'https://imgur.com/a/fWA5zWf'],
-['Liverpool_4_-_3_Tottenham_Hotspur_PL_30-04-2023_TOT', 'https://imgur.com/a/BarftcA'],
-['Liverpool_1_-_0_Fulham_PL_03-05-2023_FUL', 'https://imgur.com/a/WALeQ6L'],
-['Liverpool_1_-_0_Brentford_PL_06-05-2023_BRE', 'https://imgur.com/a/56LzQIv'],
-['Leicester_City_0_-_3_Liverpool_PL_15-05-2023_LEI', 'https://imgur.com/a/JSwrIzx'],
-['Liverpool_1_-_1_Aston_Villa_PL_20-05-2023_AST', 'https://imgur.com/a/zffi6aa'],
-['Southampton_4_-_4_Liverpool_PL_28-05-2023_SOU', 'https://imgur.com/a/7Y2CApj'],
+  let games = [
 
 // {{GAMELISTHERE}}
   ]
@@ -129,7 +78,8 @@
     'LC': 'League Cup',
     'CS': 'Community Shield',
     'SC': 'Super Cup',
-    'WC': 'Club World Cup'
+    'WC': 'Club World Cup',
+    'EL': 'Europa League'
   }
   let months = {
     '01': 'January',
