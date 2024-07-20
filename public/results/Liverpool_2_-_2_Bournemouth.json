@@ -1,0 +1,113 @@
+{
+  "date": "2024-07-12",
+  "responses": 1600,
+  "title": "Liverpool 2 - 2 Bournemouth",
+  "opposition": "Bournemouth",
+  "acronym": "BOU",
+  "score": [2, 2],
+  "competition": "PL",
+  "et": false,
+  "home": true,
+  "words": {
+    "frustrating": 6,
+    "disappointing": 5,
+    "unlucky": 4,
+    "resilient": 2
+  },
+  "motm": "Mohamed Salah",
+  "firstHalf": 7.0,
+  "secondHalf": 7.5,
+  "crowd": 7.8,
+  "tactics": 7.2,
+  "def": 6.5,
+  "mid": 7.0,
+  "att": 8.0,
+  "ref": 6.0,
+  "opp": 7.5,
+  "hotOrNot": [1, 2, 2, 8, 9],
+  "startingXI": [
+    {
+      "name": "Alisson Becker",
+      "avg": 7.0
+    },
+    {
+      "name": "Trent Alexander-Arnold",
+      "avg": 7.2
+    },
+    {
+      "name": "Virgil van Dijk",
+      "avg": 7.5
+    },
+    {
+      "name": "Ibrahima Konate",
+      "avg": 6.8
+    },
+    {
+      "name": "Andrew Robertson",
+      "avg": 7.0
+    },
+    {
+      "name": "Fabinho",
+      "avg": 6.5
+    },
+    {
+      "name": "Jordan Henderson",
+      "avg": 6.8
+    },
+    {
+      "name": "Thiago Alcantara",
+      "avg": 7.3
+    },
+    {
+      "name": "Mohamed Salah",
+      "avg": 8.0
+    },
+    {
+      "name": "Diogo Jota",
+      "avg": 7.2
+    },
+    {
+      "name": "Luis Diaz",
+      "avg": 7.8
+    }
+  ],
+  "subs": [
+    {
+      "name": "James Milner",
+      "avg": 6.5,
+      "included": 0.7,
+      "noOpinion": 0.25,
+      "excluded": 0.05,
+      "replaced": "Jordan Henderson",
+      "min": 60
+    },
+    {
+      "name": "Roberto Firmino",
+      "avg": 3.5,
+      "included": 0.55,
+      "noOpinion": 0.35,
+      "excluded": 0.1,
+      "replaced": "Diogo Jota",
+      "min": 65
+    },
+    {
+      "name": "Curtis Jones",
+      "avg": 6.0,
+      "included": 0.2,
+      "noOpinion": 0.3,
+      "excluded": 0.5,
+      "replaced": "Thiago Alcantara",
+      "min": 80
+    }
+  ],
+  "inclusions": [
+    {
+      "name": "Jordan Henderson",
+      "min": 60,
+      "avg": 6.8,
+      "included": 0.5,
+      "noOpinion": 0.4,
+      "excluded": 0.1
+    }
+  ]
+}

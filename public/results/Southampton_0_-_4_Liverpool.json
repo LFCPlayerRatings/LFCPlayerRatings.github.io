@@ -1,0 +1,108 @@
+{
+  "date": "2024-07-12",
+  "responses": 1800,
+  "title": "Southampton 0 - 4 Liverpool",
+  "opposition": "Southampton",
+  "acronym": "SOU",
+  "score": [0, 4],
+  "competition": "PL",
+  "et": false,
+  "home": false,
+  "words": { "dominant": 8, "clinical": 5, "solid": 4, "outstanding": 3 },
+  "motm": "Luis Diaz",
+  "firstHalf": 8.9,
+  "secondHalf": 8.2,
+  "crowd": 7.5,
+  "tactics": 8.8,
+  "def": 8.5,
+  "mid": 8.0,
+  "att": 9.0,
+  "ref": 7.2,
+  "opp": 5.5,
+  "hotOrNot": [2, 0, 1, 10, 14],
+  "startingXI": [
+    {
+      "name": "Alisson Becker",
+      "avg": 8.0
+    },
+    {
+      "name": "Trent Alexander-Arnold",
+      "avg": 8.5
+    },
+    {
+      "name": "Virgil van Dijk",
+      "avg": 8.8
+    },
+    {
+      "name": "Ibrahima Konate",
+      "avg": 8.3
+    },
+    {
+      "name": "Andrew Robertson",
+      "avg": 8.0
+    },
+    {
+      "name": "Fabinho",
+      "avg": 7.8
+    },
+    {
+      "name": "Jordan Henderson",
+      "avg": 8.0
+    },
+    {
+      "name": "Thiago Alcantara",
+      "avg": 8.5
+    },
+    {
+      "name": "Mohamed Salah",
+      "avg": 8.9
+    },
+    {
+      "name": "Darwin Nunez",
+      "avg": 8.7
+    },
+    {
+      "name": "Luis Diaz",
+      "avg": 9.2
+    }
+  ],
+  "subs": [
+    {
+      "name": "James Milner",
+      "avg": 7.0,
+      "included": 0.85,
+      "noOpinion": 0.1,
+      "excluded": 0.05,
+      "replaced": "Thiago Alcantara",
+      "min": 65
+    },
+    {
+      "name": "Roberto Firmino",
+      "avg": 7.8,
+      "included": 0.6,
+      "noOpinion": 0.3,
+      "excluded": 0.1,
+      "replaced": "Darwin Nunez",
+      "min": 70
+    },
+    {
+      "name": "Curtis Jones",
+      "avg": 6.5,
+      "included": 0.15,
+      "noOpinion": 0.4,
+      "excluded": 0.45,
+      "replaced": "Jordan Henderson",
+      "min": 80
+    }
+  ],
+  "inclusions": [
+    {
+      "name": "Thiago Alcantara",
+      "min": 65,
+      "avg": 8.5,
+      "included": 0.7,
+      "noOpinion": 0.25,
+      "excluded": 0.05
+    }
+  ]
+}
