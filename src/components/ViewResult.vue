@@ -89,8 +89,8 @@
           class="h-full flex justify-content-center align-items-center flex-column"
         >
           <img
-            :src="`/players/${displayName(result.motm)}.png`"
-            :alt="displayName(result.motm)"
+            :src="`/players/${result.motm}.png`"
+            :alt="result.motm"
             style="width: 30vw; object-fit: contain; max-width: 300px"
           />
           <div style="height: 1vw; background: #9e0d0d" class="w-8"></div>

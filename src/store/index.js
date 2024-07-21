@@ -9,12 +9,18 @@ const latestSurvey = await readJson("/latestSurvey.json");
 
 const resultsList = await readJson("/resultsList.json");
 
+function reformatDate(s) {
+  let [d, m, y] = s.split("-");
+  return `${y}-${m}-${d}`;
+}
+
 const results = {};
 for (let r of resultsList) {
   const result = await readJson(`/results/${r}.json`);
   results[r] = {
     id: r,
     ...result,
+    date: reformatDate(result.date),
   };
 }
 
