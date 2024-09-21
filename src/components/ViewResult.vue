@@ -2,7 +2,7 @@
   <div
     class="flex justify-content-center align-items-center flex-column w-full p-2"
   >
-    <Card class="title">
+    <Card class="title" :class="'title-' + compColor + ' p-card' + compColor">
       <template #title>
         <div class="flex justify-content-between">
           <h3>{{ displayDate.toUpperCase() }}</h3>
@@ -24,7 +24,7 @@
     </Card>
     <Card>
       <template #header
-        ><div class="bg-red rounded-top">
+        ><div class="rounded-top" :class="'bg-' + compColor">
           <h2 class="text-center">STARTING XI RATINGS</h2>
         </div></template
       >
@@ -34,7 +34,7 @@
     </Card>
     <Card>
       <template #header
-        ><div class="bg-red rounded-top">
+        ><div class="rounded-top" :class="'bg-' + compColor">
           <h2 class="text-center">SUBSTITUTE RATINGS</h2>
         </div></template
       >
@@ -48,7 +48,15 @@
               :key="i"
               class="p-0"
               style="margin-bottom: 2vw"
-              :class="s.excluded > s.included ? 'excluded' : ''"
+              :class="
+                s.excluded > s.included
+                  ? result.competition === 'CL'
+                    ? 'excluded-cl'
+                    : 'excluded'
+                  : result.competition === 'CL'
+                  ? 'included-cl'
+                  : 'included'
+              "
             >
               {{
                 s.included > s.excluded ? s.included * 100 : s.excluded * 100
@@ -80,7 +88,7 @@
     </Card>
     <Card>
       <template #header
-        ><div class="bg-red rounded-top">
+        ><div class="rounded-top" :class="'bg-' + compColor">
           <h2 class="text-center">PLAYER OF THE MATCH</h2>
         </div></template
       >
@@ -93,14 +101,20 @@
             :alt="result.motm"
             style="width: 30vw; object-fit: contain; max-width: 300px"
           />
-          <div style="height: 1vw; background: #9e0d0d" class="w-8"></div>
-          <h1>{{ displayName(result.motm).toUpperCase() }}</h1>
+          <div
+            style="height: 1vw"
+            :style="{
+              background: result.competition === 'CL' ? '#0d0d9e' : '#9e0d0d',
+            }"
+            class="w-8"
+          ></div>
+          <h1>{{ result.motm.toUpperCase() }}</h1>
         </div>
       </template>
     </Card>
     <Card>
       <template #header
-        ><div class="bg-red rounded-top">
+        ><div class="rounded-top" :class="'bg-' + compColor">
           <h2 class="text-center">WORD CLOUD</h2>
         </div></template
       >
@@ -117,14 +131,21 @@
             "
             style="width: 100%; height: 100%"
             :fontFamily="'Montserrat'"
-            :color="() => `rgb(${Math.random() * 200 + 20},0,0)`"
+            :color="
+              () =>
+                `rgb(${
+                  result.competition === 'CL' ? 0 : Math.random() * 200 + 20
+                },0,${
+                  result.competition === 'CL' ? Math.random() * 200 + 20 : 0
+                })`
+            "
           />
         </div>
       </template>
     </Card>
     <Card>
       <template #header
-        ><div class="bg-red rounded-top">
+        ><div class="rounded-top" :class="'bg-' + compColor">
           <h2 class="text-center">OTHER RATINGS</h2>
         </div></template
       >
@@ -134,7 +155,7 @@
     </Card>
     <Card>
       <template #header
-        ><div class="bg-red rounded-top">
+        ><div class="rounded-top" :class="'bg-' + compColor">
           <h2 class="text-center">HOT OR NOT</h2>
         </div></template
       >
@@ -149,7 +170,7 @@
         </div>
       </template>
     </Card>
-    <Card class="title" v-if="prevResults.length > 1">
+    <Card v-if="prevResults.length > 1" class="title title-red p-card-red">
       <template #content>
         <div
           class="h-full flex justify-content-center align-items-center flex-column"
@@ -279,6 +300,10 @@ export default {
         weight: "bold",
       };
     },
+    parseDate(dateStr) {
+      const [day, month, year] = dateStr.split("-").map(Number);
+      return new Date(year, month - 1, day); // Months are 0-based in JavaScript
+    },
     displayName(name) {
       let nameMap = {
         "Trent Alexander-Arnold": "Trent",
@@ -323,6 +348,12 @@ export default {
       return this.chronologicalResults.find(
         (result) => result.id === this.$route.params.id
       );
+    },
+    compColor() {
+      if (this.result.competition === "CL") return "blue";
+      if (this.result.competition === "LC") return "blue";
+      if (this.result.competition === "FA") return "blue";
+      return "red";
     },
     prevResults() {
       const index = this.chronologicalResults.findIndex(
@@ -648,7 +679,8 @@ export default {
             parsing: {
               xAxisKey: "included",
             },
-            backgroundColor: "#A00",
+            backgroundColor:
+              this.result.competition === "CL" ? "#0000A0" : "#A00000",
           },
           {
             label: "No Opinion",
@@ -656,7 +688,8 @@ export default {
             parsing: {
               xAxisKey: "noOpinion",
             },
-            backgroundColor: "#700",
+            backgroundColor:
+              this.result.competition === "CL" ? "#000070" : "#700",
           },
           {
             label: "Excluded",
@@ -664,7 +697,8 @@ export default {
             parsing: {
               xAxisKey: "excluded",
             },
-            backgroundColor: "#300",
+            backgroundColor:
+              this.result.competition === "CL" ? "#000030" : "#300000",
           },
         ],
       };
@@ -748,7 +782,8 @@ export default {
               this.startingXIAverage,
               ...this.startingXI.map((player) => player.avg),
             ],
-            backgroundColor: "#A00000",
+            backgroundColor:
+              this.result.competition === "CL" ? "#0000A0" : "#A00000",
             borderWidth: 1,
           },
         ],
@@ -817,7 +852,8 @@ export default {
               this.result.ref,
               this.result.opp,
             ],
-            backgroundColor: "#A00000",
+            backgroundColor:
+              this.result.competition === "CL" ? "#0000A0" : "#A00000",
           },
         ],
       };
@@ -1014,7 +1050,7 @@ export default {
         }
       }
 
-      const date = new Date(this.result.date);
+      const date = this.parseDate(this.result.date);
       const day = date.getDate();
       const ordinalSuffix = getOrdinalSuffix(day);
 
@@ -1046,6 +1082,21 @@ export default {
   color: white;
 }
 
+.bg-blue {
+  background: #051249;
+  color: white;
+}
+
+.bg-green {
+  background: #005b3a;
+  color: white;
+}
+
+.bg-silver {
+  background: #71706e;
+  color: white;
+}
+
 .bg-dark {
   background: #300;
   color: white;
@@ -1061,27 +1112,75 @@ export default {
   border-bottom-right-radius: var(--p-card-border-radius);
 }
 
-.bg-red h2 {
+.bg-red h2,
+.bg-blue h2,
+.bg-green h2,
+.bg-silver h2 {
   margin: 0;
   padding: 1vw;
 }
 
 .p-card {
   --p-card-background: white;
-  --p-card-color: #9e0d0d;
   font-size: min(2vw, 18px);
+}
+
+.p-card-red {
+  --p-card-color: #9e0d0d;
+}
+
+.p-card-blue {
+  --p-card-color: #051249;
+}
+
+.p-card-green {
+  --p-card-color: #005b3a;
+}
+
+.p-card-silver {
+  --p-card-color: #71706e;
+}
+
+.included {
+  color: #a00;
+}
+
+.included-cl {
+  color: #00a;
 }
 
 .excluded {
   color: #300;
 }
 
+.excluded-cl {
+  color: #003;
+}
+
 .title {
-  --p-card-background: linear-gradient(to bottom right, #9e0d0ddd, #340101dd),
-    url("../assets/lfc.jpg");
   --p-card-color: white;
   font-weight: bold;
   background-position: center;
+}
+
+.title-red {
+  --p-card-background: linear-gradient(to bottom right, #9e0d0ddd, #340101dd),
+    url("../assets/lfc.jpg");
+}
+
+.title-blue {
+  --p-card-background: linear-gradient(to bottom right, #052d49dd, #420b62dd),
+    url("../assets/lfc.jpg");
+}
+
+.title-green {
+  --p-card-background: linear-gradient(to bottom right, #9e0d0ddd, #340101dd),
+    url("../assets/lfc.jpg");
+}
+
+.title-silver {
+  --p-card-background: linear-gradient(to bottom right, #9e0d0ddd, #340101dd),
+    url("../assets/lfc.jpg");
 }
 
 .p-card-body {

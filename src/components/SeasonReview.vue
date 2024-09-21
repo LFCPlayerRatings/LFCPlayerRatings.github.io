@@ -3,8 +3,12 @@
   <div v-else>
     <h2 class="p-2">Season Review {{ season }}</h2>
     <div id="slides" class="home p-2">
-      <a href="#comparison" class="link">Jump to Player Comparison</a><br />
-      <a href="#results" class="link">Jump to Results Archive</a>
+      <a @click="(e) => scrollTo(e, 'comparison')" class="link"
+        >Jump to Player Comparison</a
+      ><br />
+      <a @click="(e) => scrollTo(e, 'results')" class="link"
+        >Jump to Results Archive</a
+      >
     </div>
     <div
       v-if="images"
@@ -14,8 +18,12 @@
       <img v-for="(img, i) in images" :key="i" :src="img" alt="season review" />
     </div>
     <div id="comparison" class="home p-2">
-      <a href="#slides" class="link">Jump to Season Review</a><br />
-      <a href="#results" class="link">Jump to Results Archive</a>
+      <a @click="(e) => scrollTo(e, 'slides')" class="link"
+        >Jump to Season Review</a
+      ><br />
+      <a @click="(e) => scrollTo(e, 'results')" class="link"
+        >Jump to Results Archive</a
+      >
     </div>
     <div
       class="flex justify-content-center align-items-center flex-column w-full"
@@ -44,8 +52,12 @@
       </div>
     </div>
     <div id="results" class="home p-2 mb-2">
-      <a href="#slides" class="link">Jump to Season Review</a><br />
-      <a href="#comparison" class="link">Jump to Player Comparison</a><br />
+      <a @click="(e) => scrollTo(e, 'slides')" class="link"
+        >Jump to Season Review</a
+      ><br />
+      <a @click="(e) => scrollTo(e, 'comparison')" class="link"
+        >Jump to Player Comparison</a
+      ><br />
     </div>
     <div
       v-for="(m, i) in Object.keys(monthlyResults)"
@@ -66,9 +78,14 @@
       </div>
     </div>
     <div id="bottom" class="home p-2 mt-2">
-      <a href="#slides" class="link">Jump to Season Review</a><br />
-      <a href="#comparison" class="link">Jump to Player Comparison</a><br />
-      <a href="#results" class="link">Jump to Results Archive</a>
+      <a @="(e) => scrollTo(e, 'slides')" class="link">Jump to Season Review</a
+      ><br />
+      <a @click="(e) => scrollTo(e, 'comparison')" class="link"
+        >Jump to Player Comparison</a
+      ><br />
+      <a @click="(e) => scrollTo(e, 'results')" class="link"
+        >Jump to Results Archive</a
+      >
     </div>
   </div>
 </template>
@@ -236,6 +253,11 @@ export default {
     Line,
   },
   methods: {
+    scrollTo(e, id) {
+      if (e.target) {
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+      }
+    },
     classMod3(i) {
       if (i % 3 === 0) {
         return "home";
