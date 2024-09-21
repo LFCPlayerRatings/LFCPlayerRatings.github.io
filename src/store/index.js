@@ -31,12 +31,14 @@ const chronologicalResults = Object.values(results).sort(
 const monthMap = {};
 
 function parseDate(dateStr) {
-  const [day, month, year] = dateStr.split("-").map(Number);
+  const [year, month, day] = dateStr.split("-").map(Number);
   return new Date(year, month - 1, day); // Months are 0-based in JavaScript
 }
 
 Object.values(chronologicalResults).forEach((result) => {
+  console.log(result.date);
   const date = parseDate(result.date);
+  console.log(date);
   const monthKey = `${date.getFullYear()}-${String(
     date.getMonth() + 1
   ).padStart(2, "0")}`;

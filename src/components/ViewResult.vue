@@ -95,6 +95,7 @@
       <template #content>
         <div
           class="h-full flex justify-content-center align-items-center flex-column"
+          :class="result.competition === 'CL' ? '#0d0d9e' : '#9e0d0d'"
         >
           <img
             :src="`/players/${result.motm}.png`"
@@ -301,7 +302,7 @@ export default {
       };
     },
     parseDate(dateStr) {
-      const [day, month, year] = dateStr.split("-").map(Number);
+      const [year, month, day] = dateStr.split("-").map(Number);
       return new Date(year, month - 1, day); // Months are 0-based in JavaScript
     },
     displayName(name) {
@@ -350,6 +351,7 @@ export default {
       );
     },
     compColor() {
+      console.log(this.result);
       if (this.result.competition === "CL") return "blue";
       if (this.result.competition === "LC") return "blue";
       if (this.result.competition === "FA") return "blue";
