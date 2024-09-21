@@ -1,5 +1,5 @@
 <template>
-  <div v-if="chronologicalResults.length <= 2" class="p-3 home">
+  <div v-if="chronologicalResults.length <= 5" class="p-3 home">
     <h2>Season so far coming soon!</h2>
   </div>
 </template>
