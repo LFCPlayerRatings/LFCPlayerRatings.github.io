@@ -95,7 +95,9 @@
       <template #content>
         <div
           class="h-full flex justify-content-center align-items-center flex-column"
-          :class="result.competition === 'CL' ? '#0d0d9e' : '#9e0d0d'"
+          :style="{
+            color: result.competition === 'CL' ? '#0d0d9e' : '#9e0d0d',
+          }"
         >
           <img
             :src="`/players/${result.motm}.png`"
