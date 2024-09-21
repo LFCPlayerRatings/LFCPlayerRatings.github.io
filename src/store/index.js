@@ -53,7 +53,9 @@ const monthlyResults = Object.keys(monthMap)
     results: monthMap[monthKey],
   }));
 
-const latestResultId = monthlyResults.at(-1).results.at(-1).id;
+const latestResultId = monthlyResults.length
+  ? monthlyResults.at(-1).results.at(-1).id
+  : latestSurvey.id;
 
 const latestSurveyEnded = latestSurvey.id === latestResultId;
 
